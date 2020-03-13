@@ -19,6 +19,10 @@
     <!--热门商品统计子模块-->
     <modules>
         <module>HotItemsAnalysis</module>
+        <module>NetworkFlowAnalysis</module>
+        <module>MarketAnalysis</module>
+        <module>LoginFailDetect</module>
+        <module>OderPayDetect</module>
     </modules>
 
     <dependencies>
@@ -45,6 +49,20 @@
             <artifactId>flink-connector-kafka_${scala.binary.version}</artifactId>
             <version>${flink.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>2.8.1</version>
+        </dependency>
+
+        <!--引入CEP(复杂时间处理库)实现事件流的模式匹配，类似正则表达式-->
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-cep-scala_${scala.binary.version}</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+
     </dependencies>
 
     <!--引入公有插件-->
