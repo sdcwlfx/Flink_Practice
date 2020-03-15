@@ -32,7 +32,7 @@ object LoginFailImprove {
         LoginEvent(dataArray(0).trim.toLong,dataArray(1).trim.toString,dataArray(2).trim.toString,dataArray(3).trim.toLong)
       })
       .assignTimestampsAndWatermarks(new BoundedOutOfOrdernessTimestampExtractor[LoginEvent](Time.seconds(5)) {
-        //提取时间戳
+        //提取时间戳作为watermark
         override def extractTimestamp(element: LoginEvent): Long = element.eventTime*1000L //ｍs
       })//乱序数据，给watermark延时,参数延迟时间：5s
 
